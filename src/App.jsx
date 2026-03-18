@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 
 const GEMINI_API_KEY = "AIzaSyD24yAnbb6JLO2VCIy4KrUvQB24unrZ2TE";
-const GEMINI_FLASH_MODEL = "gemini-1.5-flash-latest";
+const GEMINI_FLASH_MODEL = "gemini-1.5-flash";
 const GEMINI_IMAGE_MODEL = "imagen-3.0-generate-001";
 
 const SYSTEM_PROMPT = `Eres el narrador de un juego de aventuras interactivo e impredecible. Respondés SOLO con JSON válido. Sin markdown, sin texto extra.
@@ -32,7 +32,7 @@ const MOODS = {
 const getMood = m => MOODS[m] || MOODS.tension;
 
 async function callGeminiFlash(messages) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_FLASH_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+  const url = `https://generativelanguage.googleapis.com/v1/models/${GEMINI_FLASH_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
   // Convert message history to Gemini format
   const contents = messages.map(m => ({
