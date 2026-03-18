@@ -44,8 +44,10 @@ async function callGeminiFlash(messages) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-      contents,
+      contents: [
+        { role: "user", parts: [{ text: SYSTEM_PROMPT + "\n\n" + contents[0].parts[0].text }] },
+        ...contents.slice(1)
+      ],
       generationConfig: {
         temperature: 1.0,
         maxOutputTokens: 1200,
