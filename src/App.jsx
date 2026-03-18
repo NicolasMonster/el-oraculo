@@ -1,8 +1,8 @@
 import { useState, useCallback } from "react";
 
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_KEY;
-const GEMINI_FLASH_MODEL = "gemini-1.5-flash";
-const GEMINI_IMAGE_MODEL = "imagen-3.0-generate-001";
+const GEMINI_FLASH_MODEL = "gemini-2.0-flash-001";
+const GEMINI_IMAGE_MODEL = "imagen-4.0-generate-001";
 
 const SYSTEM_PROMPT = `Eres el narrador de un juego de aventuras interactivo e impredecible. Respondés SOLO con JSON válido. Sin markdown, sin texto extra.
 La estructura NO es fija:
